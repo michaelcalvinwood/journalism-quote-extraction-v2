@@ -3,6 +3,7 @@ import logging
 import json
 import spacy
 
+
 from utils.quote_extraction import extract_quotes_and_sentence_speaker
 
 # Utility functions
@@ -29,14 +30,13 @@ def get_text_from_input(input_):
 
 # Quote extraction
 def run_one(text, model_name='en_core_web_trf', debug=True):
-    print("here we are",flush=True)
     nlp = spacy.load(model_name)
-    print("again", flush=True)
     results = extract_quotes_and_sentence_speaker(text, nlp, debug)
     return results
 
 def write_jsonl(data, path):
     import srsly
+    path = '-'
     srsly.write_jsonl(path, [d.to_dict() for d in data])
     logging.info(f"Output witten to {output_path}")
 

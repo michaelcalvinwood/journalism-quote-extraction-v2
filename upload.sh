@@ -1,0 +1,1 @@
+rsync -a . root@node.pymnts.com:/python-environments/guardian-quote-extraction/regex_pipeline/
